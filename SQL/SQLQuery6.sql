@@ -27,7 +27,15 @@ SELECT a1.End_Date, DATEDIFF(DAY, a1.End_Date, a2.End_Date) as Difference from P
 select count( * ) as  Task_ID FROM Projects
 count(24);
 
-  SELECT OrderDate,OrderNo
-     FROM orders
-     WHERE OrderDate BETWEEN '{$startDate}' AND '{$endDate}'
-     ORDER BY OrderDate ASC
+/* Ordering  In_Time and Out_Time
+by ascending order*/ 
+  SELECT In_Time,Out_Time
+     FROM PunchCard
+     WHERE In_Time BETWEEN '2019-07-23 10:06:00.0000000' AND '2019-07-23 19:09:00.0000000'
+     ORDER BY In_Time ASC
+
+	 --selecting workhour of emplyoyee master
+	 select Name,WorkHour
+	 from EmployeeMaster
+	     where  WorkHour between '1' and '11'
+
