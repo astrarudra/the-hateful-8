@@ -39,3 +39,15 @@ by ascending order*/
 	 from EmployeeMaster
 	     where  WorkHour between '1' and '11'
 
+
+	--showing the difference of date	 
+DECLARE @FromDate DATETIME = '2014-12-31', 
+        @ToDate DATETIME = '2015-01-01'
+SELECT @FromDate 'From Date', @ToDate 'To Date',
+ DATEDIFF(YEAR, @FromDate, @ToDate)
+   -
+ (CASE
+   WHEN DATEADD(YEAR, 
+           DATEDIFF(YEAR, @FromDate,@ToDate), @FromDate)
+       > @ToDate THEN 1 
+         ELSE 0 END) 'Date difference in Years'
