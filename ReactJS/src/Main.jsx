@@ -51,13 +51,14 @@ export default class Main extends Component {
         selectedCells.forEach(cell => {
           console.log(colNo,rowNo, calc)
           colNo = cell.charCodeAt(0) - 65
-          rowNo = cell[1]
-          //calc += parseInt(grid[rowNo][colNo])
+          rowNo = cell[1] - 1
+          calc += parseInt(grid[rowNo][colNo])
           console.log("I AM HERE")
           console.log(cell, colNo,rowNo, calc)
         })
       }
       console.log("THIS IS FORMULA TOTAL", formula, selectedCells, calc);
+      return calc
     }
     return value
   }
