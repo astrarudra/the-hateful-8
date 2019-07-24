@@ -40,8 +40,24 @@ export default class Main extends Component {
 
   /* Generate Value from Formulae */
   getValue = (value) => {
+    var { grid } = this.state
+    var formula = "", split, selectedCells, rowNo, colNo, calc = 0
     if(value[0] === "="){
-      console.log("THIS IS FORMULA");
+      var split = value.split("(")
+      formula = split[0].substring(1)
+      selectedCells = split[1].substring(0, split[1].length-1).split(',') // remove last ) and split by ,
+
+      if(formula === "SUM"){
+        selectedCells.forEach(cell => {
+          console.log(colNo,rowNo, calc)
+          colNo = cell.charCodeAt(0) - 65
+          rowNo = cell[1]
+          //calc += parseInt(grid[rowNo][colNo])
+          console.log("I AM HERE")
+          console.log(cell, colNo,rowNo, calc)
+        })
+      }
+      console.log("THIS IS FORMULA TOTAL", formula, selectedCells, calc);
     }
     return value
   }
