@@ -1,0 +1,117 @@
+/* Master Variables */
+// Named FONT
+$common-font-family: 'Noto Sans', 'Audiowide';
+$x2s-font: 8px;
+$x1s-font: 10px;
+$font: 11px;
+$x1l-font: 12px;
+$x2l-font: 15px;
+$x3l-font: 17px;
+// Named Padding
+$x4s-padding: 1px;
+$x3s-padding: 2px;
+$x2s-padding: 3px;
+$x1s-padding: 3px;
+$padding: 5px;
+$x1l-padding: 6px;
+$x2l-padding: 7px;
+$x1l-padding: 8px;
+$x3l-padding: 10px;
+// Named Margin
+$x1s-margin: 1px;
+$x2s-margin: 2px;
+$x3s-margin: 3px;
+$x4s-margin: 4px;
+$margin: 5px;
+$x1l-margin: 6px;
+$x2l-margin: 7px;
+$x3l-margin: 8px;
+$x4l-margin: 10px;
+
+/* Dissociation Variables */
+
+$box-padding: $padding;
+$box-margin: $x2l-margin;
+
+
+/* Common Classes */
+
+.bo-black {
+    border: 1px solid black;
+}
+
+.bo-grey {
+    border: .75px solid rgb(214, 212, 212);
+}
+
+.bo-green {
+    border: 2px solid rgb(0, 95, 16);
+    padding: 0px 2px;
+}
+
+.cell-header {
+    background: grey;
+    border: .75px solid rgb(48, 48, 48);
+}
+
+.editorCell > input {
+    background-color: transparent;
+    border: 0px solid;
+}
+
+// .mainBody {
+//     overflow: auto;
+//     max-width: 100%;
+//     max-height: 100vh;
+// }
+
+// WIP - Will Include Named padding, margin, border.
+
+/*======= HTML TAG STYLES  ======= */
+body {
+    background-color: $common-bg-color;
+    font-size: 13px !important;
+    color: $common-font-color;
+    font-family: $common-font-family;
+    background-attachment: fixed;
+    // background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg,
+        rgba(255, 255, 255, 0.15) 20%,
+        transparent 20%,
+        transparent 40%,
+        rgba(255, 255, 255, 0.15) 40%,
+        rgba(255, 255, 255, 0.15) 60%,
+        transparent 60%,
+        transparent 80%,
+        rgba(255, 255, 255, 0.15) 80%,
+        transparent);
+}
+
+ul {
+    padding-left: 0;
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+* {
+    &:focus {
+        outline: none;
+    }
+}
+
+h4 {
+    font-size: 1.375rem;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 14px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 600;
+}
+

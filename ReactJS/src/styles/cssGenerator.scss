@@ -1,0 +1,69 @@
+/*====== Margin & Padding  ======*/
+$i: 0;
+@while $i<=100 {
+    /* Margin */
+    .mg-#{$i} { // All
+        margin: #{$i}px;
+    }
+    .mg-t-#{$i} { // Top 
+        margin-top: #{$i}px;
+    }
+    .mg-b-#{$i} { // Bottom
+        margin-bottom: #{$i}px;
+    }
+    .mg-l-#{$i} { // Left
+        margin-left: #{$i}px;
+    }
+    .mg-r-#{$i} {
+        margin-right: #{$i}px;
+    }
+    /* Padding */
+    .pd-#{$i} {
+        padding: #{$i}px;
+    }
+    .pd-t-#{$i} {
+        padding-top: #{$i}px !important;
+    }
+    .pd-b-#{$i} {
+        padding-bottom: #{$i}px !important;
+    }
+    .pd-l-#{$i} {
+        padding-left: #{$i}px;
+    }
+    .pd-r-#{$i} {
+        padding-right: #{$i}px;
+    }
+    $i: $i+1;
+}
+
+/*======= Height & Width =================*/
+$i: 0;
+@while $i<=500 {
+    .wd-#{$i} {
+        width: #{$i}px;
+    }
+    .ht-#{$i} {
+        height: #{$i}px;
+    }
+    $i: $i+1;
+}
+/*========== PCT Height & Width ==================*/
+$i: 0;
+@while $i<=100 {
+    .wd-pct-#{$i} {
+        width: round(percentage($i/100)) !important;
+    }
+    .ht-pct-#{$i} {
+        height:round(percentage($i/100));
+    }
+    $i: $i+1;
+}
+
+/*======== line-height in px ==================*/
+$i: 0;
+@while $i<=40 {
+    .ln-ht-#{$i} {
+        line-height: #{$i}px;
+    }
+    $i: $i+1;
+}

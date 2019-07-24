@@ -1,0 +1,66 @@
+/*
+This file to aggregate the styles ONLY, 
+DO NOT DEFINE STYLES HERE.
+
+RE-USE The Following Classes
+1. Bootstrap Classes - ( Availability Refer - https://hackerthemes.com/bootstrap-cheatsheet/ - Utility Section is IMPORTANT)
+2. Classes Generated From CSS Generator (Availability mentioned below)
+3. Classes Defined in common.scss (Availability mentioned below)
+
+NOTE: Import the files which have variable difinitions 1st else compilation will fail.
+*/
+
+@import 'fontawesome/fontawesome.scss'; // WIP
+@import 'colors.scss';
+@import 'common.scss';
+@import 'cssGenerator.scss'; // See below for usage
+
+// Component specific styles
+@import 'components/buttons.scss';
+
+// Module specific styles
+@import 'modules/report.scss';
+
+// Import Fonts - Refer https://fonts.google.com/ to add more.
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+/*
+============== Bootstrap =====================
+Listing very commonly used.
+
+=> Alignment
+============
+text-x - center, left, right
+=> Display
+=========
+d-flex
+d-none
+
+============ Available Classes From CSS Generator =================
+
+=> Line Height
+==============
+ln-ht-i - 0 to 30
+
+=> PCT Height - Width
+=====================
+wd-pct-i - 0 to 100
+ht-pct-i - 0 to 100
+
+=> Width and Height
+===================
+wd-i - 0 to 500
+ht-i - 0 to 500
+
+=> Padding & Margin
+===================
+pd-x-i - i => (0 to 100), x => (l,r,t,b, none)
+mg-x-i - i => (0 to 100), x => (l,r,t,b, none)
+
+======================= Available Classes in common.scss ==============================
+WIP
+
+*/

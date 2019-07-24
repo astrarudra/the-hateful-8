@@ -1,0 +1,32 @@
+/* Master Colors */
+$c-grey: #d6d6d6;
+$c-white: #ffffff;
+$c-green: #00a41a;
+$c-red: #ff2800;
+$c-teal : #469990;
+$c-lime: #bfef45;
+$c-purple: #911eb4;
+$c-magenta: #f032e6;
+$c-cyan: #42d4f4;
+$c-yellow: #ffe119;
+$c-orange: #f58231;
+$c-mint: #aaffc3;
+/* Variations */
+$c-x1l-grey: lighten(#d6d6d6, 10%);
+$c-x2l-grey: lighten(#d6d6d6, 20%);
+$c-x3l-grey: lighten(#d6d6d6, 30%);
+$c-x1d-grey: darken(#d6d6d6, 10%);
+$c-x2d-grey: darken(#d6d6d6, 20%);
+$c-x3d-grey: darken(#d6d6d6, 30%);
+
+/* Dissociation - Do not use master color and variations directly when colors may change on iteration, 
+instead dissociate into variables before using.
+This will feature one shot change, from this file it self */
+
+$common-bg-color: $c-x3l-grey;
+$common-font-color: $c-x3d-grey;
+
+/* Export is for Using colors in JS directly */
+:export {
+  red: $c-red;
+}
