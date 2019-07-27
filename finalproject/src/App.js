@@ -40,10 +40,10 @@ export default class App extends Component {
   }
 
   tileSelected = (rowNo, colNo) => {
-    var { alphaMatrix , scoreMatrix , wordComposed , words = [] , address , score , error , correct , bonus , wordsFormed , mode } = this.state
+    var { alphaMatrix, scoreMatrix, wordComposed, words = [], address, score, error, correct, bonus, wordsFormed, mode } = this.state
 
-    if(error || correct) return
-    if(mode !== "playaround" && !validateSelection(rowNo, colNo, address)) return // check if neighbour tiles are selected.
+    if (error || correct) return
+    if (mode !== "playaround" && !validateSelection(rowNo, colNo, address)) return // check if neighbour tiles are selected.
 
     wordComposed += alphaMatrix[rowNo][colNo]
     address.push([rowNo, colNo])
@@ -70,18 +70,18 @@ export default class App extends Component {
         setTimeout(() => { this.setState(futureObj) }, 500);
       }
       else {
-        for(var word in filteredWords){ // Perfect match check
-          if(filteredWords[word] === wordComposed){
+        for (var word in filteredWords) { // Perfect match check
+          if (filteredWords[word] === wordComposed) {
             console.log(wordsFormed, wordComposed)
-            if(_.includes(wordsFormed.map(o => o.word), wordComposed)) break;
+            if (_.includes(wordsFormed.map(o => o.word), wordComposed)) break;
             var wordScore = 0;
             alphaMatrix = _.cloneDeep(alphaMatrix)
             scoreMatrix = _.cloneDeep(scoreMatrix)
             address.forEach(rowCol => {
               wordScore += scoreMatrix[rowCol[0]][rowCol[1]]
-              if(mode === "scramble"){
-                alphaMatrix[rowCol[0]][rowCol[1]] = String.fromCharCode(getRndInteger(97,123))
-                scoreMatrix[rowCol[0]][rowCol[1]] = getRndInteger(1,6)
+              if (mode === "scramble") {
+                alphaMatrix[rowCol[0]][rowCol[1]] = String.fromCharCode(getRndInteger(97, 123))
+                scoreMatrix[rowCol[0]][rowCol[1]] = getRndInteger(1, 6)
               }
             })
             wordScore *= bonus
@@ -123,7 +123,7 @@ export default class App extends Component {
         </div>
         <div className="w-50">
           <div className="right-score">
-            <div onClick={jumble > 0 ? this.jumble : null}>Jumble: {jumble}</div>
+            <button className="btn btn-primary" onClick={jumble > 0 ? this.jumble : null} disabled={!(jumble > 0)}>Jumble: {jumble}</button>
             {/* <div>WORD : {wordComposed}</div> */}
             <div>SCORE : {score}</div>
             <div>BONUS : x{bonus}</div>
