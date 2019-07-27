@@ -38,6 +38,26 @@ code {
   margin: 2px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+.selection-btn:hover {
+  transition: all 0.2s ease-in-out;
+  height: 120px;
+  width: 340px;
+  background-image: linear-gradient(to right, #343fe48a , #f30101c7);
+  font-size: 25px;
+  border-radius: 15px;
+  border: 3px solid #ffffff;
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 20px;
+  font-weight: bold;
+  text-shadow: 0px 0px 11px #5aff0e;
+  color: #ffffff;
+
 }
 
 .tile {    
@@ -51,11 +71,17 @@ code {
   margin: 2px;
 }
 
+.gameover {
+  text-align: center;
+  padding: 90px 0px 50px;
+}
+
 .selected {
   background: rgb(250, 187, 142);
 }
 .selected-btn {
   background-image: linear-gradient(to right, #b92b27 , #1565C0);
+  cursor: pointer;
 }
 
 .error {
@@ -70,6 +96,19 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.sg-c {
+  text-align: -webkit-center;
+}
+.score-go {
+  text-align: center;
+  background: #00f1ff85;
+  /* height: 20vh; */
+  /* vertical-align: text-bottom; */
+  padding: 35px;
+  width: 400px;
+  font-size: 30px;
 }
 
 .f-center {
@@ -123,3 +162,24 @@ code {
 .table-head {
   font-family: 'Open Sans', sans-serif;
     background-image: url(./assets/red-orange-wrinkled-texture-background.jpg);}
+
+ .button {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      background: rgb(145, 92, 182);
+      padding: 15px 40px;
+      border-radius: 4px;
+      font-weight: normal;
+      text-transform: uppercase;
+      border: 2px solid white;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .glow-button:hover {
+      color: rgba(255, 255, 255, 1);
+      box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+    }
+
+.play-center {
+  text-align: center;
+}
