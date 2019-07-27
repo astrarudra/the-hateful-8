@@ -12,10 +12,22 @@ code {
     monospace;
 }
 
+.selection-btn {
+  height: 120px;
+  width: 350px;
+  background: rgb(255, 210, 60);
+  font-size: 30px;
+  border-radius: 15px;
+  border: 1px solid white;
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
 .tile {    
   position: relative;
-  height: 120px;
-  width: 120px;
+  height: 150px;
+  width: 150px;
   border: 1px solid white;
   border-radius: 15px;
   font-size: 100px;
@@ -25,6 +37,9 @@ code {
 
 .selected {
   background: rgb(250, 187, 142);
+}
+.selected-btn {
+  background: rgb(248, 150, 79);
 }
 
 .error {
@@ -41,6 +56,10 @@ code {
   justify-content: center;
 }
 
+.f-center {
+  justify-content: center;
+}
+
 .score {    
   font-size: 25px;
   position: absolute;
@@ -52,4 +71,6 @@ code {
   display: flex;
 }
 
-
+.header {
+  margin: 5px;
+}
