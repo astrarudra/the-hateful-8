@@ -118,17 +118,17 @@ export default class App extends Component {
     var { state, setState } = this
     var { pageSelected } = state
     var page = {
-      home : <HomePage state={state} setStore={this.setStore} />,
-      play : <PlayPage state={state} jumble={this.jumble} tileSelected={this.tileSelected} />
+      home: <HomePage state={state} setStore={this.setStore} />,
+      play: <PlayPage state={state} jumble={this.jumble} tileSelected={this.tileSelected} />
     }
 
     return (
       <div>
+        <NavBar />
         <div className="main">
-          <NavBar />
           {page[pageSelected]}
         </div>
-          <Footer />
+        <Footer />
       </div>
     )
   }

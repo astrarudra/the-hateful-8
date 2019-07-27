@@ -66,6 +66,14 @@ code {
 .f-center {
   justify-content: center;
 }
+  
+.score-right {
+  margin: 17px 142px;
+  padding: 8px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 18px 5px #810000;
+  background-image: url(https://cdn.pixabay.com/photo/2017/08/01/18/29/background-2567158_960_720.jpg);
+}
 
 .score {    
   font-size: 25px;

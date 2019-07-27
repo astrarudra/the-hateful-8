@@ -6,10 +6,9 @@ export default class RightPanel extends Component {
         return (
             <div className="w-50">
                 <div className="right-score">
-                    <button className="btn btn-primary" style={{ fontSize: "30px" }} onClick={jumble > 0 ? this.jumble : null} disabled={!(jumble > 0)}>Jumble: {jumble}</button>
-                    {/* <div>WORD : {wordComposed}</div> */}
-                    <div>SCORE : {score}</div>
-                    <div>BONUS : x{bonus}</div>
+                    <div className="score-right">SCORE: {score}</div>
+                    <div>BONUS: x{bonus}</div>
+                    <button className="btn btn-primary btn-sm m-3" onClick={jumble > 0 ? this.jumble : null} disabled={!(jumble > 0)}>Jumble: {jumble}</button>
                 </div>
 
                 <div class="container">
