@@ -14,7 +14,7 @@ export default class App extends Component {
     var { alphaMatrix, scoreMatrix } = genTiles(5, 5)
     this.state = {
       pageSelected: 'home',
-      mode: "classic", // classic , scramble
+      mode: "classic", // classic,scramble,jumparound
       time: 1,
       grid: 4,
       alphaMatrix,
@@ -34,8 +34,8 @@ export default class App extends Component {
   setStore = (o) => this.setState(o)
 
   jumble = () => {
-    var { jumble } = this.state
-    var { alphaMatrix, scoreMatrix } = genTiles(5, 5)
+    var { jumble, grid} = this.state
+    var { alphaMatrix, scoreMatrix } = genTiles(grid, grid)
     this.setState({
       jumble: --jumble,
       alphaMatrix,
@@ -45,11 +45,21 @@ export default class App extends Component {
     })
   }
 
+  play = () => {
+    var { mode , time , grid } = this.state
+    var { alphaMatrix, scoreMatrix } = genTiles(grid, grid)
+    this.setState({
+      alphaMatrix,
+      scoreMatrix,
+      pageSelected: "play"
+    })
+  }
+
   tileSelected = (rowNo, colNo) => {
     var { alphaMatrix, scoreMatrix, wordComposed, words = [], address, score, error, correct, bonus, wordsFormed, mode } = this.state
 
     if (error || correct) return
-    if (mode !== "playaround" && !validateSelection(rowNo, colNo, address)) return // check if neighbour tiles are selected.
+    if (mode !== "jumparound" && !validateSelection(rowNo, colNo, address)) return // check if neighbour tiles are selected.
 
     wordComposed += alphaMatrix[rowNo][colNo]
     address.push([rowNo, colNo])
@@ -78,7 +88,6 @@ export default class App extends Component {
       else {
         for (var word in filteredWords) { // Perfect match check
           if (filteredWords[word] === wordComposed) {
-            console.log(wordsFormed, wordComposed)
             if (_.includes(wordsFormed.map(o => o.word), wordComposed)) break;
             var wordScore = 0;
             alphaMatrix = _.cloneDeep(alphaMatrix)
@@ -91,6 +100,7 @@ export default class App extends Component {
               }
             })
             wordScore *= bonus
+            bonus = bonus + .1
             score = score + wordScore
             stateObj.correct = true
             wordsFormed.push({
@@ -103,7 +113,8 @@ export default class App extends Component {
               wordComposed: "",
               words: [],
               correct: false,
-              wordsFormed
+              wordsFormed,
+              bonus
             }
             setTimeout(() => { this.setState(futureObj) }, 500)
             break;
@@ -118,8 +129,8 @@ export default class App extends Component {
     var { state, setState } = this
     var { pageSelected } = state
     var page = {
-      home : <HomePage state={state} setStore={this.setStore} />,
-      play : <PlayPage state={state} jumble={this.jumble} tileSelected={this.tileSelected} />
+      home : <HomePage state={state} setStore={this.setStore} play={this.play}/>,
+      play : <PlayPage state={state} jumbleFn={this.jumble} tileSelected={this.tileSelected} />
     }
 
     return (
@@ -128,7 +139,7 @@ export default class App extends Component {
           <NavBar />
           {page[pageSelected]}
         </div>
-          <Footer />
+        <Footer />
       </div>
     )
   }
