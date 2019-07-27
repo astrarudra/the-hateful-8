@@ -9,7 +9,7 @@
 }
 
 .main {
-  background-color: #333b4b;
+  background-image: url("./assets/1366x768-tiled-background-vector-blue-tiles.jpg");
   font-size: calc(10px + 2vmin);
   color: white;
 }

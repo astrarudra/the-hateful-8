@@ -3,18 +3,18 @@ import React, { Component } from 'react'
 export default class HomePage extends Component {
 
     setMode = (param) => {
-        this.props.setStore({mode: param})
+        this.props.setStore({ mode: param })
     }
     setTime = (param) => {
-        this.props.setStore({time: param})
+        this.props.setStore({ time: param })
     }
     setGrid = (param) => {
-        this.props.setStore({grid: param})
+        this.props.setStore({ grid: param })
     }
 
     render() {
-        var { setStore , state , play } = this.props
-        var { mode , time , grid } = state
+        var { setStore, state, play } = this.props
+        var { mode, time, grid } = state
         var selectedClass = "selection-btn aligner selected-btn"
         var defaultClass = "selection-btn aligner"
         return (
@@ -31,7 +31,7 @@ export default class HomePage extends Component {
                 </div>
                 <div className="block">
                     <div className="header">Time</div>
-                    <div className="content">   
+                    <div className="content">
                         <div className="d-flex f-center">
                             <div className={time === 1 ? selectedClass : defaultClass} onClick={() => this.setTime(1)}>1 min</div>
                             <div className={time === 2 ? selectedClass : defaultClass} onClick={() => this.setTime(2)}>2 min</div>
@@ -41,7 +41,7 @@ export default class HomePage extends Component {
                 </div>
                 <div className="block">
                     <div className="header">Grid</div>
-                    <div className="content">   
+                    <div className="content">
                         <div className="d-flex f-center">
                             <div className={grid === 4 ? selectedClass : defaultClass} onClick={() => this.setGrid(4)}>4 x 4</div>
                             <div className={grid === 5 ? selectedClass : defaultClass} onClick={() => this.setGrid(5)}>5 x 5</div>
@@ -49,7 +49,7 @@ export default class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                <button className="btn btn-primary" style={{fontSize:"30px"}} onClick={play}>Play</button>
+                <button className="btn btn-primary" onClick={play}>Play</button>
             </div>
         )
     }
