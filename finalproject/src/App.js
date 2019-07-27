@@ -125,7 +125,7 @@ export default class App extends Component {
         </div>
         <div className="row">
         <div className="w-50">
-          <div>WORD FORMED : {wordComposed}</div>
+          <div className="mg-12">WORD FORMED : {wordComposed}</div>
           <GameGrid state={state} tileSelected={this.tileSelected} />
         </div>
         <RightPanel state={state} />

@@ -9,7 +9,7 @@ const NavBar = () => {
 	return (
 		<div className="col-12 px-0">
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand mb-0 h1 text-white">
+				<a class="navbar-brand mb-0 h1 text-white name">
 				WORDAMENT
 				</a>
 			</nav>
