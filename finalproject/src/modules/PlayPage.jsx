@@ -4,7 +4,7 @@ import RightPanel from '../components/RightPanel'
 
 export default class PlayPage extends Component {
   render() {
-    var { tileSelected, state, jumbleFn } = this.props
+    var { tileSelected, state, jumbleFn , timeUp } = this.props
     var { wordComposed } = state
     return (
       <div className="d-flex">
@@ -12,7 +12,7 @@ export default class PlayPage extends Component {
           <div>WORD FORMED : {wordComposed.toUpperCase()}</div>
           <GameGrid state={state} tileSelected={tileSelected} />
         </div>
-        <RightPanel state={state} jumbleFn={jumbleFn} />
+        <RightPanel state={state} jumbleFn={jumbleFn} timeUp={timeUp} />
       </div>
     )
   }
