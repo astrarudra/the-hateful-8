@@ -34,9 +34,9 @@
 .word-border{
   border: 1px solid #d3d3d3;
   height: 50%;
-  width: 60%;
+  width: calc(50% - (-20px));
 }
 .right-score{
-  font-size: 30pt;
-    padding-top: 30pt;
+  font-size: 25pt;
+  padding-top: 30pt;
 }
