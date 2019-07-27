@@ -2,20 +2,16 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.app-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 100px;
   pointer-events: none;
 }
 
 .main {
-  background-color: #282c34;
-  min-height: 100vh;
-  /* align-items: center;
-  justify-content: center; */
+  background-color: #333b4b;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin: 2px;
 }
 
 .App-link {
@@ -35,8 +31,11 @@
   border: 1px solid #d3d3d3;
   height: 50%;
   width: calc(50% - (-20px));
+  text-align: center;
 }
 .right-score{
   font-size: 25pt;
   padding-top: 30pt;
+  text-align: center;
+  /* margin-left: 10pt; */
 }

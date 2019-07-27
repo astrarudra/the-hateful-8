@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import './App.css';
 import allWords from './constants/words.json'
-import GameGrid from './components/GameGrid'
-import RightPanel from './components/RightPanel'
-
+import HomePage from './modules/HomePage'
+import PlayPage from './modules/PlayPage'
+import NavBar from './common/NavBar'
+import Footer from './common/Footer'
 import _ from 'lodash'
 import { getRndInteger, genTiles, validateSelection } from './utility'
 
@@ -12,8 +13,10 @@ export default class App extends Component {
     super(props);
     var { alphaMatrix, scoreMatrix } = genTiles(5, 5)
     this.state = {
-      mode: "playaround", // classic , scramble
       pageSelected: 'home',
+      mode: "classic", // classic , scramble
+      time: 1,
+      grid: 4,
       alphaMatrix,
       scoreMatrix,
       address: [],
@@ -27,6 +30,8 @@ export default class App extends Component {
       wordsFormed: []
     }
   }
+
+  setStore = (o) => this.setState(o)
 
   jumble = () => {
     var { jumble } = this.state
@@ -111,18 +116,19 @@ export default class App extends Component {
 
   render() {
     var { state, setState } = this
-    var { pageSelected, alphaMatrix, scoreMatrix, address, wordComposed, score, correct, error, jumble, bonus, wordsFormed } = state
+    var { pageSelected } = state
     var page = {
-      //home : <Home />
+      home : <HomePage state={state} setStore={this.setStore} />,
+      play : <PlayPage state={state} jumble={this.jumble} tileSelected={this.tileSelected} />
     }
 
     return (
-      <div className="main d-flex">
-        <div className="w-75">
-          <div>WORD FORMED : {wordComposed}</div>
-          <GameGrid state={state} tileSelected={this.tileSelected} />
+      <div>
+        <div className="main">
+          <NavBar />
+          {page[pageSelected]}
         </div>
-        <RightPanel state={state} />
+          <Footer />
       </div>
     )
   }
