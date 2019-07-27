@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './App.css';
 import allWords from './constants/words.json'
-import Tile from './components/Tile'
 import GameGrid from './components/GameGrid'
 
 import _ from 'lodash'
@@ -12,6 +11,7 @@ export default class App extends Component {
     super(props);
     var { alphaMatrix , scoreMatrix } = genTiles(5,5)
     this.state = {
+      mode: "playaround", // classic , scramble
       pageSelected: 'home',
       alphaMatrix,
       scoreMatrix,
@@ -33,15 +33,17 @@ export default class App extends Component {
     this.setState({
       jumble: --jumble,
       alphaMatrix,
-      scoreMatrix
+      scoreMatrix,
+      address: [],
+      wordComposed: "",
     })
   }
 
   tileSelected = (rowNo, colNo) => {
-    var { alphaMatrix , scoreMatrix , wordComposed , words = [] , address , score , error , correct , bonus , wordsFormed } = this.state
+    var { alphaMatrix , scoreMatrix , wordComposed , words = [] , address , score , error , correct , bonus , wordsFormed , mode } = this.state
 
     if(error || correct) return
-    if(!validateSelection(rowNo, colNo, address)) return // check if neighbour tiles are selected.
+    if(mode !== "playaround" && !validateSelection(rowNo, colNo, address)) return // check if neighbour tiles are selected.
 
     wordComposed += alphaMatrix[rowNo][colNo]
     address.push([rowNo,colNo])
@@ -70,13 +72,17 @@ export default class App extends Component {
       else {
         for(var word in filteredWords){ // Perfect match check
           if(filteredWords[word] === wordComposed){
+            console.log(wordsFormed, wordComposed)
+            if(_.includes(wordsFormed.map(o => o.word), wordComposed)) break;
             var wordScore = 0;
             alphaMatrix = _.cloneDeep(alphaMatrix)
             scoreMatrix = _.cloneDeep(scoreMatrix)
             address.forEach(rowCol => {
               wordScore += scoreMatrix[rowCol[0]][rowCol[1]]
-              alphaMatrix[rowCol[0]][rowCol[1]] = String.fromCharCode(getRndInteger(97,123))
-              scoreMatrix[rowCol[0]][rowCol[1]] = getRndInteger(1,6)
+              if(mode === "scramble"){
+                alphaMatrix[rowCol[0]][rowCol[1]] = String.fromCharCode(getRndInteger(97,123))
+                scoreMatrix[rowCol[0]][rowCol[1]] = getRndInteger(1,6)
+              }
             })
             wordScore *= bonus
             score = score + wordScore
@@ -116,7 +122,7 @@ export default class App extends Component {
           <div>WORD : {wordComposed}</div>
           <div>SCORE : {score}</div>
           <div>BONUS : x{bonus}</div>
-          <div>WORDS FORMED : SCORE </div>
+          <div>WORDS FORMED </div>
           <div>{wordsFormed.map(word => {
             return (
               <div className="d-flex">
