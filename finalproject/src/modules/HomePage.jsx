@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 
 export default class HomePage extends Component {
 
-    gotoPlay = () => {
-        this.props.setStore({pageSelected: "play"})
-    }
     setMode = (param) => {
         this.props.setStore({mode: param})
     }
@@ -16,7 +13,7 @@ export default class HomePage extends Component {
     }
 
     render() {
-        var { setStore , state } = this.props
+        var { setStore , state , play } = this.props
         var { mode , time , grid } = state
         var selectedClass = "selection-btn aligner selected-btn"
         var defaultClass = "selection-btn aligner"
@@ -24,7 +21,7 @@ export default class HomePage extends Component {
             <div className="text-center">
                 <div className="block">
                     <div className="header">Modes</div>
-                    <div className="content">   
+                    <div className="content">
                         <div className="d-flex f-center">
                             <div className={mode === "classic" ? selectedClass : defaultClass} onClick={() => this.setMode("classic")}>Classic</div>
                             <div className={mode === "scramble" ? selectedClass : defaultClass} onClick={() => this.setMode("scramble")}>Scramble</div>
@@ -52,7 +49,7 @@ export default class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                <button className="btn btn-primary" style={{fontSize:"30px"}} onClick={this.gotoPlay}>Play</button>
+                <button className="btn btn-primary" style={{fontSize:"30px"}} onClick={play}>Play</button>
             </div>
         )
     }

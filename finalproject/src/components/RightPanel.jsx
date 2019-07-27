@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 
 export default class RightPanel extends Component {
     render() {
-        var { score, jumble, bonus, wordsFormed } = this.props.state;
+        var { score, bonus, wordsFormed, jumble } = this.props.state;
+        var { jumbleFn } = this.props
         return (
             <div className="w-50">
                 <div className="right-score">
                     <div className="score-right">SCORE: {score}</div>
                     <div>BONUS: x{bonus}</div>
-                    <button className="btn btn-primary btn-sm m-3" onClick={jumble > 0 ? this.jumble : null} disabled={!(jumble > 0)}>Jumble: {jumble}</button>
+                    <button className="btn btn-primary btn-sm m-3" onClick={jumble > 0 ? jumbleFn : null} disabled={!(jumble > 0)}>Jumble: {jumble}</button>
                 </div>
 
                 <div class="container">
