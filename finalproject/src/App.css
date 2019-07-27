@@ -10,7 +10,7 @@
 
 .main {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   /* align-items: center;
   justify-content: center; */
   font-size: calc(10px + 2vmin);
@@ -35,8 +35,10 @@
   border: 1px solid #d3d3d3;
   height: 50%;
   width: calc(50% - (-20px));
+  text-align: center;
 }
 .right-score{
   font-size: 25pt;
   padding-top: 30pt;
+  text-align: center;
 }

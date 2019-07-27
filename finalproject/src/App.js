@@ -3,6 +3,8 @@ import './App.css';
 import allWords from './constants/words.json'
 import GameGrid from './components/GameGrid'
 import RightPanel from './components/RightPanel'
+ import NavBar from './common/NavBar'
+ import Footer from './common/footer'
 
 import _ from 'lodash'
 import { getRndInteger, genTiles, validateSelection } from './utility'
@@ -117,12 +119,20 @@ export default class App extends Component {
     }
 
     return (
-      <div className="main d-flex">
-        <div className="w-75">
+      <div className="container-fluid main">
+        <div className="row">
+          <NavBar />
+        </div>
+        <div className="row">
+        <div className="w-50">
           <div>WORD FORMED : {wordComposed}</div>
           <GameGrid state={state} tileSelected={this.tileSelected} />
         </div>
         <RightPanel state={state} />
+        </div>
+        <div className="row">
+          <Footer />
+        </div>
       </div>
     )
   }
