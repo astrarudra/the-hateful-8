@@ -3,6 +3,7 @@ import './App.css';
 import allWords from './constants/words.json'
 import HomePage from './modules/HomePage'
 import PlayPage from './modules/PlayPage'
+import GameOverPage from './modules/GameOverPage'
 import NavBar from './common/NavBar'
 import Footer from './common/Footer'
 import _ from 'lodash'
@@ -32,6 +33,10 @@ export default class App extends Component {
   }
 
   setStore = (o) => this.setState(o)
+
+  timeUp = () => {
+    this.setState({pageSelected: 'gameOver'})
+  }
 
   jumble = () => {
     var { jumble, grid } = this.state
@@ -127,10 +132,11 @@ export default class App extends Component {
 
   render() {
     var { state, setState } = this
-    var { pageSelected } = state
+    var { pageSelected , score } = state
     var page = {
       home: <HomePage state={state} setStore={this.setStore} play={this.play} />,
-      play: <PlayPage state={state} jumbleFn={this.jumble} tileSelected={this.tileSelected} />
+      play: <PlayPage state={state} jumbleFn={this.jumble} tileSelected={this.tileSelected} timeUp={this.timeUp} />,
+      gameOver: <GameOverPage score={score} setStore={this.setStore} />
     }
 
     return (
