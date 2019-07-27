@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './App.css';
 import allWords from './constants/words.json'
 import Tile from './components/Tile'
+import GameGrid from './components/GameGrid'
+
 import _ from 'lodash'
 import { getRndInteger , genTiles , validateSelection } from './utility'
 
@@ -36,7 +38,7 @@ export default class App extends Component {
   }
 
   tileSelected = (rowNo, colNo) => {
-    var { alphaMatrix , scoreMatrix , wordComposed , words , address , score , error , correct , bonus , wordsFormed } = this.state
+    var { alphaMatrix , scoreMatrix , wordComposed , words = [] , address , score , error , correct , bonus , wordsFormed } = this.state
 
     if(error || correct) return
     if(!validateSelection(rowNo, colNo, address)) return // check if neighbour tiles are selected.
@@ -65,34 +67,35 @@ export default class App extends Component {
         }
         setTimeout(() => { this.setState(futureObj) }, 500);
       }
-
-      for(var word in filteredWords){ // Perfect match check
-        if(filteredWords[word] === wordComposed){
-          var wordScore = 0;
-          alphaMatrix = _.cloneDeep(alphaMatrix)
-          scoreMatrix = _.cloneDeep(scoreMatrix)
-          address.forEach(rowCol => {
-            wordScore += scoreMatrix[rowCol[0]][rowCol[1]]
-            alphaMatrix[rowCol[0]][rowCol[1]] = String.fromCharCode(getRndInteger(97,123))
-            scoreMatrix[rowCol[0]][rowCol[1]] = getRndInteger(1,6)
-          })
-          wordScore *= bonus
-          score = score + wordScore
-          stateObj.correct = true
-          wordsFormed.push({
-            word: wordComposed,
-            score: wordScore
-          })
-          var futureObj = {
-            score, alphaMatrix, scoreMatrix, 
-            address: [],
-            wordComposed: "",
-            words: [],
-            correct: false,
-            wordsFormed
+      else {
+        for(var word in filteredWords){ // Perfect match check
+          if(filteredWords[word] === wordComposed){
+            var wordScore = 0;
+            alphaMatrix = _.cloneDeep(alphaMatrix)
+            scoreMatrix = _.cloneDeep(scoreMatrix)
+            address.forEach(rowCol => {
+              wordScore += scoreMatrix[rowCol[0]][rowCol[1]]
+              alphaMatrix[rowCol[0]][rowCol[1]] = String.fromCharCode(getRndInteger(97,123))
+              scoreMatrix[rowCol[0]][rowCol[1]] = getRndInteger(1,6)
+            })
+            wordScore *= bonus
+            score = score + wordScore
+            stateObj.correct = true
+            wordsFormed.push({
+              word: wordComposed,
+              score: wordScore
+            })
+            var futureObj = {
+              score, alphaMatrix, scoreMatrix, 
+              address: [],
+              wordComposed: "",
+              words: [],
+              correct: false,
+              wordsFormed
+            }
+            setTimeout(() => { this.setState(futureObj) }, 500)
+            break;
           }
-          setTimeout(() => { this.setState(futureObj) }, 500)
-          break;
         }
       }
     }
@@ -108,30 +111,7 @@ export default class App extends Component {
     
     return (
       <div className="main">
-          {alphaMatrix.map((row, rowNo) => {
-              return (
-                <div className="d-flex">
-                  {row.map((tile, colNo) => {
-                      var selected = false
-                      address.forEach(rowCol => {
-                        if(rowCol[0] === rowNo && rowCol[1] === colNo){
-                          selected = true;
-                        }
-                      })
-                      return <Tile tile={tile} 
-                        selected={selected} 
-                        correct={correct} 
-                        error={error} 
-                        onClick={() => this.tileSelected(rowNo, colNo)}
-                        letter={tile.toUpperCase()}
-                        score={scoreMatrix[rowNo][colNo]}
-                        />
-                    })
-                  }
-                </div>
-              )
-          })
-          }
+          <GameGrid state={state} setState={this.setState} tileSelected={this.tileSelected} />
           <div onClick={jumble > 0 ? this.jumble : null}>Jumble: {jumble}</div>
           <div>WORD : {wordComposed}</div>
           <div>SCORE : {score}</div>
