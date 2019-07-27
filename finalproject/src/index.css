@@ -82,6 +82,13 @@ code {
   text-shadow: 0 0 11px #6786df, 0 0 5px #ffc2bb;
   color: #b3ff23;
 }
+.mg-12{
+  margin-left: 12pt;
+}
+.name{
+  color: #82beff !important;
+  font-size: 18pt;
+}
 .table-body{
   text-shadow: 1px 0px 20px #ffffff;
   color: aliceblue;

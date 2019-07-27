@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import './App.css';
 import allWords from './constants/words.json'
-import GameGrid from './components/GameGrid'
-import RightPanel from './components/RightPanel'
 import HomePage from './modules/HomePage'
 import PlayPage from './modules/PlayPage'
-
+import NavBar from './common/NavBar'
+import Footer from './common/Footer'
 import _ from 'lodash'
 import { getRndInteger, genTiles, validateSelection } from './utility'
 
@@ -124,8 +123,12 @@ export default class App extends Component {
     }
 
     return (
-      <div className="main">
-        {page[pageSelected]}
+      <div>
+        <div className="main">
+          <NavBar />
+          {page[pageSelected]}
+        </div>
+          <Footer />
       </div>
     )
   }
