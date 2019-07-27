@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css';
 import allWords from './constants/words.json'
 import GameGrid from './components/GameGrid'
+import RightPanel from './components/RightPanel'
 
 import _ from 'lodash'
 import { getRndInteger, genTiles, validateSelection } from './utility'
@@ -119,28 +120,9 @@ export default class App extends Component {
       <div className="main d-flex">
         <div className="w-75">
           <div>WORD FORMED : {wordComposed}</div>
-          <GameGrid state={state} setState={this.setState} tileSelected={this.tileSelected} />
+          <GameGrid state={state} tileSelected={this.tileSelected} />
         </div>
-        <div className="w-50">
-          <div className="right-score">
-            <button className="btn btn-primary" style={{fontSize:"30px"}}onClick={jumble > 0 ? this.jumble : null} disabled={!(jumble > 0)}>Jumble: {jumble}</button>
-            {/* <div>WORD : {wordComposed}</div> */}
-            <div>SCORE : {score}</div>
-            <div>BONUS : x{bonus}</div>
-          </div>
-          <div className="word-border">WORDS FORMED : SCORE 
-          <div>{wordsFormed.map(word => {
-            return (
-              <div className="d-flex">
-                <div>{word.word}</div>
-                <div>{word.score}</div>
-              </div>
-            )
-          })
-          }
-          </div>
-          </div>
-        </div>
+        <RightPanel state={state} />
       </div>
     )
   }
