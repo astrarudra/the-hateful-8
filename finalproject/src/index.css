@@ -12,6 +12,13 @@ code {
     monospace;
 }
 
+.footer {
+  background-image: linear-gradient(to right, #141E30 , #243B55);
+  border: 1px solid transparent;
+  border-radius: 0px 0px 30px 30px;
+  color: white;
+}
+
 .selection-btn {
   height: 120px;
   width: 350px;
