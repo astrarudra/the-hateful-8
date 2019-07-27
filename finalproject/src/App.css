@@ -11,10 +11,8 @@
 .main {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
   margin: 2px;
@@ -31,4 +29,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.word-border{
+  border: 1px solid #d3d3d3;
+  height: 50%;
+  width: 60%;
+}
+.right-score{
+  font-size: 30pt;
+    padding-top: 30pt;
 }
