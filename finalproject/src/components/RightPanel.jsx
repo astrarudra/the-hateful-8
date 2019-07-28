@@ -10,7 +10,7 @@ export default class RightPanel extends Component {
                 <div className="scoreboard rocky-bg">
                     <div className="th-b">SCORE: {score}</div>
                     <Timer startTime={time * 60} timeUp={timeUp} />
-                    <div className="th-b">BONUS: x{bonus}</div>
+                    <div className="th-b">Bonus: x{bonus}</div>
                 </div>
                 <div className="table">
                     <div>
