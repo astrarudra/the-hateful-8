@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Tile from './Tile'
+import { validateSelection } from '../utility'
 
 export default class GameGrid extends Component {
     render() {
@@ -10,7 +11,8 @@ export default class GameGrid extends Component {
             error ,
             grid , 
             wordComposed ,
-            jumble
+            jumble ,
+            mode
         } = this.props.state
         var { tileSelected , jumbleFn } = this.props
         return (
@@ -21,6 +23,7 @@ export default class GameGrid extends Component {
                     <div className="d-flex">
                     {row.map((tile, colNo) => {
                         var selected = false
+                        var possible = mode === "jumparound" ? true : validateSelection(rowNo, colNo, address)
                         address.forEach(rowCol => {
                             if(rowCol[0] === rowNo && rowCol[1] === colNo){
                             selected = true;
@@ -29,6 +32,7 @@ export default class GameGrid extends Component {
                         return <Tile tile={tile} 
                             selected={selected}
                             grid={grid}
+                            possible={possible}
                             correct={correct} 
                             error={error} 
                             onClick={() => tileSelected(rowNo, colNo)}

@@ -261,6 +261,10 @@ body {
   background: rgb(250, 187, 142);
 }
 
+.possible:hover {
+  background: #f9aa33
+}
+
 .error {
   background: red;
 }

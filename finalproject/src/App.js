@@ -5,13 +5,15 @@ The other state is TIMER so that it does not refresh the whole page.
 */
 
 import React, { Component } from 'react'
+import _ from 'lodash'
 import allWords from './constants/words.json'
+
 import HomePage from './modules/HomePage'
 import PlayPage from './modules/PlayPage'
 import GameOverPage from './modules/GameOverPage'
+
 import NavBar from './common/NavBar'
 import Footer from './common/Footer'
-import _ from 'lodash'
 import { getRndInteger, genTiles, validateSelection } from './utility'
 
 export default class App extends Component {
