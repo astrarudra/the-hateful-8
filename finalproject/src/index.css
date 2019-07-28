@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -21,34 +22,65 @@ code {
      text-shadow: 0px 0px 8px #ffffff;
 }
 
-.footer {
+.footer {    
   background-image: linear-gradient(to right, #141E30 , #243B55);
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   border-radius: 0px 0px 30px 30px;
+  color: #c7c7c7;
+  font-size: 16px;
+}
+
+.nav-header {
+  background-image: linear-gradient(to right, #141E30 , #243B55);
+  height: 75px;
   color: white;
 }
 
+.fs-sm {
+  font-size: 12px;
+}
+
 .selection-btn {
-  height: 120px;
-  width: 350px;
+  height: 65px;
+  width: 300px;
   background-image: linear-gradient(to right, #655e978a , #6d2e2ec7);
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 15px;
   border: 1px solid white;
-  margin: 2px;
-  align-items: center;
-  justify-content: center;
+  margin: 0px 10px;
 }
 
 .tile {    
   position: relative;
-  height: 150px;
-  width: 150px;
   border: 1px solid white;
   border-radius: 15px;
-  font-size: 100px;
   background: chocolate;
   margin: 2px;
+}
+
+.tile4 {
+  height: 90px;
+  width: 90px;
+  font-size: 50px;
+}
+
+.tile5 {
+  height: 75px;
+  width: 75px;
+  font-size: 45px;
+}
+
+.tile6 {
+  height: 60px;
+  width: 60px;
+  font-size: 35px;
+}
+
+.score {    
+  font-size: 15px;
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
 }
 
 .selected {
@@ -77,18 +109,13 @@ code {
 }
   
 .score-right {
-  margin: 17px 142px;
-  padding: 8px;
+  position: relative;
+  margin: auto;
+  padding: 5px;
+  width: 300px;
   border-radius: 14px;
   box-shadow: 0px 0px 18px 5px #810000;
   background-image: url(https://cdn.pixabay.com/photo/2017/08/01/18/29/background-2567158_960_720.jpg);
-}
-
-.score {    
-  font-size: 25px;
-  position: absolute;
-  bottom: 0px;
-  right: 10px;
 }
 
 .d-flex {
@@ -100,8 +127,9 @@ code {
 }
 
 .header {
-  margin: 5px;
+  padding: 15px;
 }
+
 .th-b {
   text-shadow: 0 0 11px #6786df, 0 0 5px #ffc2bb;
   color: #b3ff23;
@@ -123,3 +151,65 @@ code {
 .table-head {
   font-family: 'Open Sans', sans-serif;
     background-image: url(./assets/red-orange-wrinkled-texture-background.jpg);}
+
+    .App {
+  text-align: center;
+}
+
+.app-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 75px;
+  pointer-events: none;
+}
+
+.ht-pct-100 {
+  height: 100%
+}
+
+.main {
+  background-image: url("./assets/1366x768-tiled-background-vector-blue-tiles.jpg");
+  height: calc(100vh - 152px);
+  color: white;
+  padding: 5px 40px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.word-border{
+  border: 1px solid #d3d3d3;
+  height: 50%;
+  width: calc(50% - (-20px));
+  text-align: center;
+}
+
+.scoreboard {
+  font-size: 20pt;
+  margin: 15pt auto;
+  padding: 10px 0px;
+  text-align: center;
+  /* margin-left: 10pt; */
+}
+
+.progress-bar {
+  background-color: #1b00ff40;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.table td, .table th {
+  border: unset;
+  padding: 6px 15px;
+}
+

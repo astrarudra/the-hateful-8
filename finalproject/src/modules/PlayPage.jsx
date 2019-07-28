@@ -7,12 +7,11 @@ export default class PlayPage extends Component {
     var { tileSelected, state, jumbleFn , timeUp } = this.props
     var { wordComposed } = state
     return (
-      <div className="d-flex">
-        <div className="w-75">
-          <div>WORD FORMED : {wordComposed.toUpperCase()}</div>
-          <GameGrid state={state} tileSelected={tileSelected} />
+      <div className="d-flex ht-pct-100">
+        <div className="w-50 aligner">
+            <GameGrid state={state} tileSelected={tileSelected} jumbleFn={jumbleFn} />
         </div>
-        <RightPanel state={state} jumbleFn={jumbleFn} timeUp={timeUp} />
+        <RightPanel state={state} timeUp={timeUp} />
       </div>
     )
   }
