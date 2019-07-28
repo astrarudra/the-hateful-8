@@ -27,7 +27,7 @@ export default class Timer extends Component {
         var pctTime = (time / this.props.startTime * 100) + "%"
 
         return (
-            <div className="score-right th-b" style={{margin: '10px 0px'}}>
+            <div className="rocky-bg th-b" style={{margin: '10px 0px'}}>
                 Time Left: {min + ":" + sec}
                 <div className="progress-bar" style={{width: pctTime}}></div>
             </div>

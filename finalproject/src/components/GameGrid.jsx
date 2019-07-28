@@ -15,7 +15,7 @@ export default class GameGrid extends Component {
         var { tileSelected , jumbleFn } = this.props
         return (
             <div className="grid-wrap">
-                <div>WORD FORMED : {wordComposed.toUpperCase()} </div>
+                <div>SELECTION : <span className="th-b">{wordComposed.toUpperCase()}</span></div>
                 {alphaMatrix.map((row, rowNo) => {
                     return (
                     <div className="d-flex">

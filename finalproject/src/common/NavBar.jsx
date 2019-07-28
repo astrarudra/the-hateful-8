@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import logo from '../assets/logo.png'
 
-const NavBar = () => {
+const NavBar = ({setStore}) => {
 	return (
 		<div className="nav-header aligner">
-			<div>WORDAMENT</div>
+			<div onClick={() => setStore({ pageSelected: 'home' })}>
+				<img src={logo} height="50"></img>
+			</div>
 		</div>
 	);
 };

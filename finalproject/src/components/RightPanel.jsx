@@ -7,30 +7,29 @@ export default class RightPanel extends Component {
         var { timeUp } = this.props
         return (
             <div className="w-50">
-                <div className="scoreboard score-right">
+                <div className="scoreboard rocky-bg">
                     <div className="th-b">SCORE: {score}</div>
                     <Timer startTime={time * 60} timeUp={timeUp} />
                     <div className="th-b">BONUS: x{bonus}</div>
                 </div>
-                <table class="table">
-                    <thead>
-                        <tr className="table-head">
-                            <th className="th-a">WORDS FORMED</th>
-                            <th className="th-b">SCORE</th>
-                        </tr>
-                    </thead>
-                    <tbody className="table-body"
-                    >{wordsFormed.map(word => {
-                        return (
-                            <tr>
-                                <td>{word.word.toUpperCase()}</td>
-                                <td>{word.score}</td>
-                            </tr>
-                        )
-                    })}
-
-                    </tbody>
-                </table>
+                <div className="table">
+                    <div>
+                        <div className="table-head d-flex">
+                            <div className="th-a table-col1">WORDS FORMED</div>
+                            <div className="th-b">SCORE</div>
+                        </div>
+                    </div>
+                    <div className="table-body">
+                        {wordsFormed.map(word => {
+                            return (
+                                <div className="d-flex">
+                                    <div className="table-col1">{word.word.toUpperCase()}</div>
+                                    <div>{word.score}</div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
             </div>
         )
     }

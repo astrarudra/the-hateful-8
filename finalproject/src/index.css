@@ -1,3 +1,48 @@
+/* 
+Since this is a very simple app, all styles are in this file.
+SCSS or LESS is not used 
+*/
+
+/* Utility Classes */
+
+.ht-pct-100 {
+  height: 100%
+}
+
+.fs-sm {
+  font-size: 12px;
+}
+
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-center {
+  justify-content: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.th-a {
+  text-shadow: 0 0 11px #3603fc, 0 0 5px #560cff;
+  color: aqua
+}
+
+.th-b {
+  text-shadow: 0 0 11px #6786df, 0 0 5px #ffc2bb;
+  color: #b3ff23;
+}
+
+.sg-c {
+  text-align: -webkit-center;
+}
+
+/* Tag Override */
+
 body {
   margin: 0;
   overflow: hidden;
@@ -8,27 +53,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.wordament {
-     /* font-weight: bold; */
-     font-size: 34px;
-     color: #f1f2ff;;
-     font-family: 'Hanalei', cursive;
-     /* padding: 0px; */
-     text-shadow: 0px 0px 8px #ffffff;
-}
-
-.footer {    
-  background-image: linear-gradient(to right, #141E30 , #243B55);
-  border: 0px solid transparent;
-  border-radius: 0px 0px 30px 30px;
-  color: #c7c7c7;
-  font-size: 16px;
-}
+/* General Classes */
 
 .nav-header {
   background-image: linear-gradient(to right, #141E30 , #243B55);
@@ -36,8 +61,20 @@ code {
   color: white;
 }
 
-.fs-sm {
-  font-size: 12px;
+.footer {    
+  background-image: linear-gradient(to right, #141E30 , #243B55);
+  color: #c7c7c7;
+  font-size: 16px;
+}
+
+.header {
+  font-family: 'Saira Stencil One', cursive;
+  font-size: 35px;
+  color: #a8f9f9;
+}
+
+.selected {
+  background: rgb(250, 187, 142);
 }
 
 .selection-btn {
@@ -49,6 +86,148 @@ code {
   border: 1px solid white;
   margin: 0px 10px;
 }
+
+.selected-btn {
+  background-image: linear-gradient(to right, #f46b45 , #eea849);
+  cursor: pointer;
+}
+
+.gameover {
+  text-align: center;
+  padding: 10px;
+}
+
+.final-score {
+  text-align: center;
+  background: #00f1ff85;
+  padding: 20px;
+  width: 400px;
+  font-size: 45px;
+  border-radius: 20px;
+}
+
+.rocky-bg {
+  position: relative;
+  margin: auto;
+  padding: 5px;
+  width: 300px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 18px 5px #810000;
+  background-image: url("./assets/rocky.jpg");
+}
+
+.name{
+  color: #82beff !important;
+  font-size: 18pt;
+}
+.table-body{
+  text-shadow: 1px 0px 20px #ffffff;
+  color: aliceblue;
+  font-family: 'Poppins', sans-serif;
+  background-image: url("./assets/tbody.jpg");
+  min-height: 220px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.table-head {
+  font-family: 'Open Sans', sans-serif;
+  background-image: url("./assets/redtexture.jpg");
+}
+
+.App {
+  text-align: center;
+}
+
+.app-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 75px;
+  pointer-events: none;
+}
+
+.main {
+  background-image: url("./assets/bluetiles.jpg");
+  height: calc(100vh - 150px);
+  color: white;
+  padding: 5px 40px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scoreboard {
+  font-size: 20pt;
+  margin: 15pt auto;
+  padding: 10px 0px;
+  text-align: center;
+}
+
+.progress-bar {
+  background-color: #1b00ff40;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.table td, .table th {
+  border: unset;
+  padding: 6px 15px;
+}
+
+.button {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgb(145, 92, 182);
+  padding: 15px 40px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  border: 2px solid white;
+  transition: all 0.2s ease-in-out;
+}
+
+.play-center {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.table-col1 {
+  width: 450px;
+  padding-left: 30px;
+}
+
+.mode-text {
+  font-size: 12px;
+}
+
+/* buttons */
+
+.play {
+  padding: 0px;
+  border: unset;
+  margin-top: 15px;
+}
+
+.play:hover , .glow:hover {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+  -moz-box-shadow:    0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+  box-shadow:         0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+}
+
+/* Tiles */
 
 .tile {    
   position: relative;
@@ -76,26 +255,6 @@ code {
   font-size: 35px;
 }
 
-.score {    
-  font-size: 15px;
-  position: absolute;
-  bottom: 0px;
-  right: 10px;
-}
-
-.gameover {
-  text-align: center;
-  padding: 90px 0px 50px;
-}
-
-.selected {
-  background: rgb(250, 187, 142);
-}
-.selected-btn {
-  background-image: linear-gradient(to right, #b92b27 , #1565C0);
-  cursor: pointer;
-}
-
 .error {
   background: red;
 }
@@ -104,151 +263,9 @@ code {
   background: green;
 }
 
-.aligner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sg-c {
-  text-align: -webkit-center;
-}
-.score-go {
-  text-align: center;
-  background: #00f1ff85;
-  /* height: 20vh; */
-  /* vertical-align: text-bottom; */
-  padding: 35px;
-  width: 400px;
-  font-size: 30px;
-}
-
-.f-center {
-  justify-content: center;
-}
-  
-.score-right {
-  position: relative;
-  margin: auto;
-  padding: 5px;
-  width: 300px;
-  border-radius: 14px;
-  box-shadow: 0px 0px 18px 5px #810000;
-  background-image: url(https://cdn.pixabay.com/photo/2017/08/01/18/29/background-2567158_960_720.jpg);
-}
-
-.d-flex {
-  display: flex;
-}
-.th-a {
-  text-shadow: 0 0 11px #3603fc, 0 0 5px #560cff;
-  color: aqua
-}
-
-.header {
-  padding: 15px;
-}
-
-.th-b {
-  text-shadow: 0 0 11px #6786df, 0 0 5px #ffc2bb;
-  color: #b3ff23;
-}
-.mg-12{
-  margin-left: 12pt;
-}
-.name{
-  color: #82beff !important;
-  font-size: 18pt;
-}
-.table-body{
-  text-shadow: 1px 0px 20px #ffffff;
-  color: aliceblue;
-  font-family: 'Poppins', sans-serif;
-  background-image: url("./assets/800px_COLOURBOX8743136.jpg");
-}
-
-.table-head {
-  font-family: 'Open Sans', sans-serif;
-    background-image: url(./assets/red-orange-wrinkled-texture-background.jpg);}
-
-.App {
-  text-align: center;
-}
-
-.app-logo {
-  animation: App-logo-spin infinite 10s linear;
-  height: 75px;
-  pointer-events: none;
-}
-
-.ht-pct-100 {
-  height: 100%
-}
-
-.main {
-  background-image: url("./assets/1366x768-tiled-background-vector-blue-tiles.jpg");
-  height: calc(100vh - 152px);
-  color: white;
-  padding: 5px 40px;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.word-border{
-  border: 1px solid #d3d3d3;
-  height: 50%;
-  width: calc(50% - (-20px));
-  text-align: center;
-}
-
-.scoreboard {
-  font-size: 20pt;
-  margin: 15pt auto;
-  padding: 10px 0px;
-  text-align: center;
-  /* margin-left: 10pt; */
-}
-
-.progress-bar {
-  background-color: #1b00ff40;
-  height: 100%;
+.score {    
+  font-size: 15px;
   position: absolute;
-  top: 0;
-}
-
-.table td, .table th {
-  border: unset;
-  padding: 6px 15px;
-}
-
-.button {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
-  background: rgb(145, 92, 182);
-  padding: 15px 40px;
-  border-radius: 4px;
-  font-weight: normal;
-  text-transform: uppercase;
-  border: 2px solid white;
-  transition: all 0.2s ease-in-out;
-}
-    
-.glow-button:hover {
-  color: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
-}
-
-.play-center {
-  text-align: center;
+  bottom: 0px;
+  right: 10px;
 }

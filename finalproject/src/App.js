@@ -1,3 +1,9 @@
+/* 
+This is a small scale application and so no flux architecture is used.
+App Js is the starting point and the only STATE maintained in the entire application. 
+The other state is TIMER so that it does not refresh the whole page.
+*/
+
 import React, { Component } from 'react'
 import './App.css';
 import allWords from './constants/words.json'
@@ -12,32 +18,32 @@ import { getRndInteger, genTiles, validateSelection } from './utility'
 export default class App extends Component {
   constructor(props) {
     super(props);
-    var { alphaMatrix, scoreMatrix } = genTiles(5, 5)
     this.state = {
       pageSelected: 'home',
-      mode: "classic", // classic,scramble,jumparound
+      mode: "classic", // modes -> classic,scramble,jumparound
       time: 1,
       grid: 4,
-      alphaMatrix,
-      scoreMatrix,
       address: [],
       wordComposed: "",
       words: [],
-      score: 0,
+      score: 0, // Total score
       error: false,
-      correct: false,
+      correct: false, 
       jumble: 5,
       bonus: 1,
       wordsFormed: []
     }
   }
 
+  /* This component is parent of all and this function works like action in a flux*/
   setStore = (o) => this.setState(o)
 
+  /* Triggered when time is over */
   timeUp = () => {
     this.setState({pageSelected: 'gameOver'})
   }
 
+  /* Triggered when user is unable to find word, this creates new tiles randomly */
   jumble = () => {
     var { jumble, grid } = this.state
     var { alphaMatrix, scoreMatrix } = genTiles(grid, grid)
@@ -50,8 +56,9 @@ export default class App extends Component {
     })
   }
 
+  /* Triggered when play is clicked after selection the options  */
   play = () => {
-    var { mode, time, grid } = this.state
+    var { grid } = this.state
     var { alphaMatrix, scoreMatrix } = genTiles(grid, grid)
     this.setState({
       alphaMatrix,
@@ -60,6 +67,7 @@ export default class App extends Component {
     })
   }
 
+  /* This is the heart of the application triggered when a tile is selected */
   tileSelected = (rowNo, colNo) => {
     var { alphaMatrix, scoreMatrix, wordComposed, words = [], address, score, error, correct, bonus, wordsFormed, mode } = this.state
 
@@ -133,6 +141,7 @@ export default class App extends Component {
   render() {
     var { state, setState } = this
     var { pageSelected , score } = state
+    /* Map of all the pages */
     var page = {
       home: <HomePage state={state} setStore={this.setStore} play={this.play} />,
       play: <PlayPage state={state} jumbleFn={this.jumble} tileSelected={this.tileSelected} timeUp={this.timeUp} />,
@@ -141,7 +150,7 @@ export default class App extends Component {
 
     return (
       <div>
-        <NavBar />
+        <NavBar setStore={this.setStore}/>
         <div className="main">
           {page[pageSelected]}
         </div>

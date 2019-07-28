@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
-import abc from "../assets/GameOver.png"
+import gameOverImg from "../assets/GameOver.png"
 
 export default class GameOverPage extends Component {
     render() {
         var { score, setStore } = this.props
         return (
             <div className="">
-                <div className="gameover"><img src={abc} /></div>
-                <div className="sg-c"><div className="score-go">Your Score : {score} </div></div>
-                <div className="play-center"><a onClick={() => setStore({ pageSelected: 'home' })}
-                    class="button glow-button">Play Again</a></div>
+                <div className="gameover"><img src={gameOverImg} /></div>
+                <div className="sg-c"><div className="final-score th-b">Your Score : {score} </div></div>
+                <div className="aligner" style={{marginTop: '20px'}}>
+                    <div onClick={() => setStore({ pageSelected: 'home' })} className="selection-btn selected-btn aligner glow">Play Again</div>
+                </div>
             </div>
         )
     }

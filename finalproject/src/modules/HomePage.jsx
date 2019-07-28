@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import playimg from '../assets/play.png'
 
 export default class HomePage extends Component {
 
@@ -13,23 +14,40 @@ export default class HomePage extends Component {
     }
 
     render() {
-        var { setStore, state, play } = this.props
+        var { state, play } = this.props
         var { mode, time, grid } = state
         var selectedClass = "selection-btn aligner selected-btn"
         var defaultClass = "selection-btn aligner"
         return (
             <div className="text-center">
                 <div className="block">
+                    {/* MODES */}
                     <div className="header">Modes</div>
                     <div className="content">
                         <div className="d-flex f-center">
-                            <div className={mode === "classic" ? selectedClass : defaultClass} onClick={() => this.setMode("classic")}>Classic</div>
-                            <div className={mode === "scramble" ? selectedClass : defaultClass} onClick={() => this.setMode("scramble")}>Scramble</div>
-                            <div className={mode === "jumparound" ? selectedClass : defaultClass} onClick={() => this.setMode("jumparound")}>Jump Around</div>
+                            <div className={mode === "classic" ? selectedClass : defaultClass} onClick={() => this.setMode("classic")}>
+                                <div>
+                                    <div>Classic</div>
+                                    <div className="mode-text">This is a test</div>
+                                </div> 
+                            </div>
+                            <div className={mode === "scramble" ? selectedClass : defaultClass} onClick={() => this.setMode("scramble")}>
+                                <div>
+                                    <div>Scramble</div>
+                                    <div className="mode-text">This is a test</div>
+                                </div>                        
+                            </div>
+                            <div className={mode === "jumparound" ? selectedClass : defaultClass} onClick={() => this.setMode("jumparound")}>
+                                <div>
+                                    <div>Jump Around</div>
+                                    <div className="mode-text">This is a test</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="block">
+                    {/* TIME */}
                     <div className="header">Time</div>
                     <div className="content">
                         <div className="d-flex f-center">
@@ -40,6 +58,7 @@ export default class HomePage extends Component {
                     </div>
                 </div>
                 <div className="block">
+                    {/* GRID */}
                     <div className="header">Grid</div>
                     <div className="content">
                         <div className="d-flex f-center">
@@ -49,7 +68,9 @@ export default class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                <button className="btn btn-primary" onClick={play}>Play</button>
+                <button onClick={play} className="play">
+                    <img src={playimg} height="60" />
+                </button>
             </div>
         )
     }
