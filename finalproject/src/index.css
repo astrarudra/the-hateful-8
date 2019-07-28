@@ -171,16 +171,15 @@ body {
   min-height: 215px;
   max-height: 215px;
   overflow: auto;
-  opacity: 0.8;
-
+  opacity: 0.9;
 }
 
 .table-head {
   font-family: 'Open Sans', sans-serif;
-  background-image: url(/static/media/redtexture.5a709266.jpg);
+  background-image: url("./assets/redtexture.jpg");
   min-height: 35px;
   max-height: 35px;
-
+  padding-top: 3px;
 }
 
 .App {
