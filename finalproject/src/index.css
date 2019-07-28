@@ -59,12 +59,14 @@ body {
   background-image: linear-gradient(to right, #141E30 , #243B55);
   height: 75px;
   color: white;
+  box-shadow: -20px -2px 14px 11px #07031ac7;
 }
 
 .footer {    
   background-image: linear-gradient(to right, #141E30 , #243B55);
   color: #c7c7c7;
   font-size: 16px;
+  box-shadow: -20px -2px 14px 11px #07031ac7;
 }
 
 .fs-head {
@@ -77,6 +79,14 @@ body {
   color: #a8f9f9;
 }
 
+.selected {
+  background: rgba(250, 187, 142, 0.726);
+}
+
+.wordament {
+  box-shadow: 0 0 7px 5px #090b29a3;
+}
+
 .selection-btn {
   height: 65px;
   width: 300px;
@@ -87,14 +97,36 @@ body {
   margin: 0px 10px;
 }
 
+
+.selection-btn:hover {
+  transition: all 0.2s ease-in-out; 
+  background-image: linear-gradient(to right, #3440e480 , #f301019d);
+  height: 65px;
+  width: 300px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.527);
+  margin: 0px 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 0px #caccffb0;
+  font-weight: bold;
+}
+
 .selected-btn {
   background-image: linear-gradient(to right, #f46b45 , #eea849);
+  cursor: pointer;
+}
+.selected-btn:hover {
+  background-image: linear-gradient(to right, #f46b45 , #eea849);
+  box-shadow: 0px 0px 20px 0px #caccffb0;
   cursor: pointer;
 }
 
 .gameover {
   text-align: center;
-  padding: 10px;
+  opacity: 0.8;
+  padding: 5px 299px;
+  width: -8px;
 }
 
 .final-score {
@@ -120,19 +152,35 @@ body {
   color: #82beff !important;
   font-size: 18pt;
 }
+
+.table {
+  opacity: 0.8;
+  box-shadow: 0px 0px 17px 11px #000000;
+  border-radius: 8px;
+  width: 96%;
+  margin-bottom: 1rem;
+  color: #212529;
+  margin: 10px;
+}
+
 .table-body{
   text-shadow: 1px 0px 20px #ffffff;
   color: aliceblue;
   font-family: 'Poppins', sans-serif;
   background-image: url("./assets/tbody.jpg");
-  min-height: 220px;
-  max-height: 220px;
+  min-height: 215px;
+  max-height: 215px;
   overflow: auto;
+  opacity: 0.8;
+
 }
 
 .table-head {
   font-family: 'Open Sans', sans-serif;
-  background-image: url("./assets/redtexture.jpg");
+  background-image: url(/static/media/redtexture.5a709266.jpg);
+  min-height: 35px;
+  max-height: 35px;
+
 }
 
 .App {
@@ -208,8 +256,14 @@ body {
 }
 
 .mode-text {
-  font-size: 12px;
+  font-size: 11px;
+  width: 142px;
+  text-shadow: 0 0 12px #000000;
+  color: #fdffff;
+  font-family: 'Montserrat', sans-serif;
 }
+
+
 
 /* buttons */
 
@@ -217,15 +271,17 @@ body {
   padding: 0px;
   border: unset;
   margin-top: 15px;
+  box-shadow: 0 0 6px #0c0051;
 }
 
 .play:hover , .glow:hover {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-  -moz-box-shadow:    0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-  box-shadow:         0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(208, 255, 208, 0.74);
+  -moz-box-shadow:    0px 0px 30px 0px rgba(245, 239, 255, 0.795);
+  box-shadow: 0px 0px 15px 10px rgba(190, 191, 255, 0.78);
+
 }
 
 /* Tiles */

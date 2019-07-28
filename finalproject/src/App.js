@@ -13,7 +13,7 @@ import PlayPage from './modules/PlayPage'
 import GameOverPage from './modules/GameOverPage'
 
 import NavBar from './common/NavBar'
-import Footer from './common/Footer'
+import Footer from './common/footer'
 import { getRndInteger, genTiles, validateSelection } from './utility'
 
 export default class App extends Component {
@@ -26,7 +26,7 @@ export default class App extends Component {
       grid: 4,
       address: [],
       error: false,
-      correct: false, 
+      correct: false,
       jumble: 5,
       bonus: 1,
       wordComposed: "",
@@ -41,7 +41,7 @@ export default class App extends Component {
 
   /* Triggered when time is over */
   timeUp = () => {
-    this.setState({pageSelected: 'gameOver'})
+    this.setState({ pageSelected: 'gameOver' })
   }
 
   /* Triggered when user is unable to find word, this creates new tiles randomly */
@@ -88,7 +88,7 @@ export default class App extends Component {
     if (wordComposed.length === 1) stateObj.words = allWords[wordComposed] // pick words from indexed file when single letter is clicked
     else if (wordComposed.length >= 3) { // word check begins
       var filteredWords = words.filter(word => { // filter words that don't match composed word pattern
-        if(word.length < wordComposed.length) return false // to optimize the filter filter
+        if (word.length < wordComposed.length) return false // to optimize the filter filter
         for (var letter in wordComposed) {
           if (word[letter] !== wordComposed[letter]) return false
         }
@@ -121,7 +121,7 @@ export default class App extends Component {
               }
             })
             // score calculation
-            wordScore *= bonus 
+            wordScore *= bonus
             bonus = bonus + 1
             score = score + wordScore
             stateObj.correct = true
@@ -149,7 +149,7 @@ export default class App extends Component {
 
   render() {
     var { state } = this
-    var { pageSelected , score } = state
+    var { pageSelected, score } = state
     /* Map of all the pages */
     var page = {
       home: <HomePage state={state} setStore={this.setStore} play={this.play} />,
@@ -159,7 +159,7 @@ export default class App extends Component {
 
     return (
       <div>
-        <NavBar setStore={this.setStore}/>
+        <NavBar setStore={this.setStore} />
         <div className="main">
           {page[pageSelected]}
         </div>
