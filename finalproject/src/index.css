@@ -74,7 +74,11 @@ body {
 }
 
 .selected {
-  background: rgb(250, 187, 142);
+  background: rgba(250, 187, 142, 0.726);
+}
+
+.wordament {
+  box-shadow: 0 0 7px 5px #090b29a3;
 }
 
 .selection-btn {
@@ -85,6 +89,21 @@ body {
   border-radius: 15px;
   border: 1px solid white;
   margin: 0px 10px;
+}
+
+
+.selection-btn:hover {
+  transition: all 0.2s ease-in-out; 
+  background-image: linear-gradient(to right, #3440e480 , #f301019d);
+  height: 65px;
+  width: 300px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.527);
+  margin: 0px 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 0px #caccffb0;
+  font-weight: bold;
 }
 
 .selected-btn {
@@ -207,8 +226,14 @@ body {
 }
 
 .mode-text {
-  font-size: 12px;
+  font-size: 11px;
+  width: 142px;
+  text-shadow: 0 0 12px #000000;
+  color: #fdffff;
+  font-family: 'Montserrat', sans-serif;
 }
+
+
 
 /* buttons */
 
@@ -216,15 +241,17 @@ body {
   padding: 0px;
   border: unset;
   margin-top: 15px;
+  box-shadow: 0 0 6px #0c0051;
 }
 
 .play:hover , .glow:hover {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-  -moz-box-shadow:    0px 0px 30px 0px rgba(0, 255, 0, 0.67);
-  box-shadow:         0px 0px 30px 0px rgba(0, 255, 0, 0.67);
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(208, 255, 208, 0.74);
+  -moz-box-shadow:    0px 0px 30px 0px rgba(245, 239, 255, 0.795);
+  box-shadow: 0px 0px 15px 10px rgba(190, 191, 255, 0.78);
+
 }
 
 /* Tiles */

@@ -28,19 +28,19 @@ export default class HomePage extends Component {
                             <div className={mode === "classic" ? selectedClass : defaultClass} onClick={() => this.setMode("classic")}>
                                 <div>
                                     <div>Classic</div>
-                                    <div className="mode-text">This is a test</div>
-                                </div> 
+                                    <div className="mode-text">The Original Way It Was Meant To Be Played</div>
+                                </div>
                             </div>
                             <div className={mode === "scramble" ? selectedClass : defaultClass} onClick={() => this.setMode("scramble")}>
                                 <div>
                                     <div>Scramble</div>
-                                    <div className="mode-text">This is a test</div>
-                                </div>                        
+                                    <div className="mode-text">Letters Disapper Once The Word Is Formed</div>
+                                </div>
                             </div>
                             <div className={mode === "jumparound" ? selectedClass : defaultClass} onClick={() => this.setMode("jumparound")}>
                                 <div>
                                     <div>Jump Around</div>
-                                    <div className="mode-text">This is a test</div>
+                                    <div className="mode-text">Chose Any Letter You Wish. No Restrictions!</div>
                                 </div>
                             </div>
                         </div>

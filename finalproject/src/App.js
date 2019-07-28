@@ -28,7 +28,7 @@ export default class App extends Component {
       words: [],
       score: 0, // Total score
       error: false,
-      correct: false, 
+      correct: false,
       jumble: 5,
       bonus: 1,
       wordsFormed: []
@@ -40,7 +40,7 @@ export default class App extends Component {
 
   /* Triggered when time is over */
   timeUp = () => {
-    this.setState({pageSelected: 'gameOver'})
+    this.setState({ pageSelected: 'gameOver' })
   }
 
   /* Triggered when user is unable to find word, this creates new tiles randomly */
@@ -140,7 +140,7 @@ export default class App extends Component {
 
   render() {
     var { state, setState } = this
-    var { pageSelected , score } = state
+    var { pageSelected, score } = state
     /* Map of all the pages */
     var page = {
       home: <HomePage state={state} setStore={this.setStore} play={this.play} />,
@@ -150,7 +150,7 @@ export default class App extends Component {
 
     return (
       <div>
-        <NavBar setStore={this.setStore}/>
+        <NavBar setStore={this.setStore} />
         <div className="main">
           {page[pageSelected]}
         </div>

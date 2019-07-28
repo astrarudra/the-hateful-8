@@ -6,7 +6,7 @@ const Footer = () => {
 		<div className="footer">
 			<footer className="d-flex">
 				<img className="app-logo" src={logo}></img>
-				<div className="v-center" style={{marginTop: '16px'}}>
+				<div className="v-center" style={{ marginTop: '16px' }}>
 					<div>Built with love using ReactJS</div>
 					<div className="fs-sm">© 2018 Copyright: The Hateful 8</div>
 				</div>
