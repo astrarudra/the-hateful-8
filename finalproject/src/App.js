@@ -5,7 +5,6 @@ The other state is TIMER so that it does not refresh the whole page.
 */
 
 import React, { Component } from 'react'
-import './App.css';
 import allWords from './constants/words.json'
 import HomePage from './modules/HomePage'
 import PlayPage from './modules/PlayPage'
@@ -24,13 +23,13 @@ export default class App extends Component {
       time: 1,
       grid: 4,
       address: [],
-      wordComposed: "",
-      words: [],
-      score: 0, // Total score
       error: false,
       correct: false, 
       jumble: 5,
       bonus: 1,
+      wordComposed: "",
+      words: [],
+      score: 0, // Total score
       wordsFormed: []
     }
   }
@@ -63,7 +62,13 @@ export default class App extends Component {
     this.setState({
       alphaMatrix,
       scoreMatrix,
-      pageSelected: "play"
+      pageSelected: "play",
+      jumble: 5,
+      bonus: 1,
+      wordComposed: "",
+      address: [],
+      score: 0, // Total score
+      wordsFormed: []
     })
   }
 
@@ -71,16 +76,17 @@ export default class App extends Component {
   tileSelected = (rowNo, colNo) => {
     var { alphaMatrix, scoreMatrix, wordComposed, words = [], address, score, error, correct, bonus, wordsFormed, mode } = this.state
 
-    if (error || correct) return
+    if (error || correct) return // When a tile is selected at the brief time when they are red or green.
     if (mode !== "jumparound" && !validateSelection(rowNo, colNo, address)) return // check if neighbour tiles are selected.
 
-    wordComposed += alphaMatrix[rowNo][colNo]
-    address.push([rowNo, colNo])
+    wordComposed += alphaMatrix[rowNo][colNo] //letter is added to compose the word
+    address.push([rowNo, colNo]) // address of the letter is saved
     var stateObj = { address, wordComposed }
 
-    if (wordComposed.length === 1) stateObj.words = allWords[wordComposed]
-    else if (wordComposed.length >= 3) {
-      var filteredWords = words.filter(word => {
+    if (wordComposed.length === 1) stateObj.words = allWords[wordComposed] // pick words from indexed file when single letter is clicked
+    else if (wordComposed.length >= 3) { // word check begins
+      var filteredWords = words.filter(word => { // filter words that don't match composed word pattern
+        if(word.length < wordComposed.length) return false // to optimize the filter filter
         for (var letter in wordComposed) {
           if (word[letter] !== wordComposed[letter]) return false
         }
@@ -103,20 +109,21 @@ export default class App extends Component {
           if (filteredWords[word] === wordComposed) {
             if (_.includes(wordsFormed.map(o => o.word), wordComposed)) break;
             var wordScore = 0;
-            alphaMatrix = _.cloneDeep(alphaMatrix)
+            alphaMatrix = _.cloneDeep(alphaMatrix) // clone is dont to do away with reference.
             scoreMatrix = _.cloneDeep(scoreMatrix)
             address.forEach(rowCol => {
               wordScore += scoreMatrix[rowCol[0]][rowCol[1]]
-              if (mode === "scramble") {
+              if (mode === "scramble") { // get new tiles
                 alphaMatrix[rowCol[0]][rowCol[1]] = String.fromCharCode(getRndInteger(97, 123))
                 scoreMatrix[rowCol[0]][rowCol[1]] = getRndInteger(1, 6)
               }
             })
-            wordScore *= bonus
+            // score calculation
+            wordScore *= bonus 
             bonus = bonus + 1
             score = score + wordScore
             stateObj.correct = true
-            wordsFormed.push({
+            wordsFormed.unshift({
               word: wordComposed,
               score: wordScore
             })
@@ -139,7 +146,7 @@ export default class App extends Component {
   }
 
   render() {
-    var { state, setState } = this
+    var { state } = this
     var { pageSelected , score } = state
     /* Map of all the pages */
     var page = {

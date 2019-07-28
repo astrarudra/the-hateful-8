@@ -5,7 +5,6 @@ import RightPanel from '../components/RightPanel'
 export default class PlayPage extends Component {
   render() {
     var { tileSelected, state, jumbleFn , timeUp } = this.props
-    var { wordComposed } = state
     return (
       <div className="d-flex ht-pct-100">
         <div className="w-50 aligner">

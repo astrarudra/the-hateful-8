@@ -67,14 +67,14 @@ body {
   font-size: 16px;
 }
 
+.fs-head {
+  font-family: 'Saira Stencil One', cursive;
+}
+
 .header {
   font-family: 'Saira Stencil One', cursive;
   font-size: 35px;
   color: #a8f9f9;
-}
-
-.selected {
-  background: rgb(250, 187, 142);
 }
 
 .selection-btn {
@@ -167,6 +167,7 @@ body {
 
 .scoreboard {
   font-size: 20pt;
+  font-family: 'Saira Stencil One', cursive;
   margin: 15pt auto;
   padding: 10px 0px;
   text-align: center;
@@ -235,6 +236,7 @@ body {
   border-radius: 15px;
   background: chocolate;
   margin: 2px;
+  cursor: pointer;
 }
 
 .tile4 {
@@ -253,6 +255,10 @@ body {
   height: 60px;
   width: 60px;
   font-size: 35px;
+}
+
+.selected {
+  background: rgb(250, 187, 142);
 }
 
 .error {
