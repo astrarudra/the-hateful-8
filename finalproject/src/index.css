@@ -83,11 +83,17 @@ code {
   right: 10px;
 }
 
+.gameover {
+  text-align: center;
+  padding: 90px 0px 50px;
+}
+
 .selected {
   background: rgb(250, 187, 142);
 }
 .selected-btn {
   background-image: linear-gradient(to right, #b92b27 , #1565C0);
+  cursor: pointer;
 }
 
 .error {
@@ -102,6 +108,19 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.sg-c {
+  text-align: -webkit-center;
+}
+.score-go {
+  text-align: center;
+  background: #00f1ff85;
+  /* height: 20vh; */
+  /* vertical-align: text-bottom; */
+  padding: 35px;
+  width: 400px;
+  font-size: 30px;
 }
 
 .f-center {
@@ -152,7 +171,7 @@ code {
   font-family: 'Open Sans', sans-serif;
     background-image: url(./assets/red-orange-wrinkled-texture-background.jpg);}
 
-    .App {
+.App {
   text-align: center;
 }
 
@@ -213,3 +232,23 @@ code {
   padding: 6px 15px;
 }
 
+.button {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgb(145, 92, 182);
+  padding: 15px 40px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  border: 2px solid white;
+  transition: all 0.2s ease-in-out;
+}
+    
+.glow-button:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.play-center {
+  text-align: center;
+}
