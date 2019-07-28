@@ -59,12 +59,18 @@ body {
   background-image: linear-gradient(to right, #141E30 , #243B55);
   height: 75px;
   color: white;
+  box-shadow: -20px -2px 14px 11px #07031ac7;
 }
 
 .footer {    
   background-image: linear-gradient(to right, #141E30 , #243B55);
   color: #c7c7c7;
   font-size: 16px;
+  box-shadow: -20px -2px 14px 11px #07031ac7;
+}
+
+.fs-head {
+  font-family: 'Saira Stencil One', cursive;
 }
 
 .header {
@@ -113,7 +119,9 @@ body {
 
 .gameover {
   text-align: center;
-  padding: 10px;
+  opacity: 0.8;
+  padding: 5px 299px;
+  width: -8px;
 }
 
 .final-score {
@@ -139,19 +147,35 @@ body {
   color: #82beff !important;
   font-size: 18pt;
 }
+
+.table {
+  opacity: 0.8;
+  box-shadow: 0px 0px 17px 11px #000000;
+  border-radius: 8px;
+  width: 96%;
+  margin-bottom: 1rem;
+  color: #212529;
+  margin: 10px;
+}
+
 .table-body{
   text-shadow: 1px 0px 20px #ffffff;
   color: aliceblue;
   font-family: 'Poppins', sans-serif;
-  background-image: url("./assets/tbody.jpg");
-  min-height: 220px;
-  max-height: 220px;
+  background-image: url(/static/media/tbody.988d895d.jpg);
+  min-height: 231px;
+  max-height: 249px;
   overflow: auto;
+  opacity: 0.8;
+
 }
 
 .table-head {
   font-family: 'Open Sans', sans-serif;
-  background-image: url("./assets/redtexture.jpg");
+  background-image: url(/static/media/redtexture.5a709266.jpg);
+  min-height: 35px;
+  max-height: 35px;
+
 }
 
 .App {
@@ -186,6 +210,7 @@ body {
 
 .scoreboard {
   font-size: 20pt;
+  font-family: 'Saira Stencil One', cursive;
   margin: 15pt auto;
   padding: 10px 0px;
   text-align: center;
@@ -262,6 +287,7 @@ body {
   border-radius: 15px;
   background: chocolate;
   margin: 2px;
+  cursor: pointer;
 }
 
 .tile4 {
@@ -280,6 +306,10 @@ body {
   height: 60px;
   width: 60px;
   font-size: 35px;
+}
+
+.selected {
+  background: rgb(250, 187, 142);
 }
 
 .error {
